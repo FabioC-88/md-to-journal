@@ -8,9 +8,9 @@
     "verified": "14"
   },
   "authors": [{ "name": "MrTotano" }],
-  "scripts": ["main.js"],
-
+  "esmodules": ["main.js"],
+  "styles": ["style.css"],
   "url": "https://github.com/FabioC-88/md-to-journal",
-  "manifest": "https://github.com/FabioC-88/md-to-journal/releases/latest/download/module.json",
+  "manifest": "https://github.com/FabioC-88/md-to-journal/releases/download/v0.0.1/module.json",
   "download": "https://github.com/FabioC-88/md-to-journal/releases/download/v0.0.1/md-to-journal.zip"
 }
