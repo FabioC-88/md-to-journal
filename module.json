@@ -2,7 +2,7 @@
   "id": "md-to-journal",
   "title": "Markdown to Journal Converter",
   "description": "A small tool for importing .md files as Journal Entries.",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "compatibility": {
     "minimum": "12",
     "verified": "14"
@@ -11,6 +11,6 @@
   "esmodules": ["main.js"],
   "styles": ["style.css"],
   "url": "https://github.com/FabioC-88/md-to-journal",
-  "manifest": "https://github.com/FabioC-88/md-to-journal/releases/download/v0.0.1/module.json",
-  "download": "https://github.com/FabioC-88/md-to-journal/releases/download/v0.0.1/md-to-journal.zip"
+  "manifest": "https://github.com/FabioC-88/md-to-journal/releases/download/v0.0.2/module.json",
+  "download": "https://github.com/FabioC-88/md-to-journal/releases/download/v0.0.2/md-to-journal.zip"
 }
