@@ -1,29 +1,48 @@
 Hooks.on('renderJournalDirectory', (app, html, data) => {
+    console.log("MD to Journal | Rendering della sidebar Journal rilevato!");
+
+    // Se il pulsante esiste già (per evitare duplicati al refresh), non fare nulla
+    if (html.find('.import-md-btn').length > 0) return;
+
+    // Definiamo il pulsante
     const importDiv = $(`
         <div class="header-actions action-buttons flexrow">
-            <button class='import-md-btn'><i class='fas fa-file-markdown'></i> Import MD</button>
+            <button type="button" class='import-md-btn'>
+                <i class='fas fa-file-markdown'></i> Importa MD
+            </button>
             <input type='file' id='md-upload-input' accept='.md' style='display:none' multiple>
         </div>
     `);
 
-    html.find('.header-actions').after(importDiv);
+    // Proviamo a inserirlo in cima alla lista dei Journal
+    const header = html.find(".header-actions");
+    if (header.length > 0) {
+        header.after(importDiv);
+        console.log("MD to Journal | Pulsante inserito con successo.");
+    } else {
+        console.error("MD to Journal | Non ho trovato la classe .header-actions!");
+    }
 
-    const fileInput = importDiv.find('#md-upload-input');
-    
-    importDiv.find('.import-md-btn').click(() => fileInput.click());
+    // Logica del click
+    importDiv.find('.import-md-btn').on('click', (event) => {
+        event.preventDefault();
+        html.find('#md-upload-input').click();
+    });
 
-    fileInput.change(async (event) => {
+    // Gestione del cambio file
+    html.find('#md-upload-input').on('change', async (event) => {
         const files = event.target.files;
+        if (!files.length) return;
+        ui.notifications.info(`Caricamento di ${files.length} file...`);
+        
         for (let file of files) {
             const reader = new FileReader();
             reader.onload = async (e) => {
-                const content = e.target.result;
                 const name = file.name.replace(".md", "");
-                await createJournalEntry(name, content);
+                await createJournalEntry(name, e.target.result);
             };
             reader.readAsText(file);
         }
-        ui.notifications.info(`${files.length} work in progress...`);
     });
 });
 
