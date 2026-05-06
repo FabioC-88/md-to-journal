@@ -1,0 +1,12 @@
+{
+  "id": "md-to-journal",
+  "title": "Markdown to Journal Converter",
+  "description": "A small tool for importing .md files as Journal Entries.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "14"
+  },
+  "authors": [{ "name": "MrTotano" }],
+  "scripts": ["main.js"]
+}

@@ -1,0 +1,10 @@
+.import-md-btn {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px dashed #4b4a44;
+    margin: 5px 0;
+    flex: 1;
+}
+.import-md-btn:hover {
+    background: rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 5px red;
+}
